@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/templates/saludo.html" method="post">
+        <label>Usuario:</label><br>
+        <input type="text" name="username" required><br>
+        <label>Contraseña:</label><br>
+        <input type="password" name="password" required><br>
+        <input type="submit" value="Iniciar Sesión">
+        {% if error %}
+        <p>{{error}}</p>
+        {% endif %}
+    </form>
+</body>
+</html>
