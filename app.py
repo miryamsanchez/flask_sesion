@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, session, redirect
 app = Flask(__name__)
-app.secret_key = "ST1994"
+app.secret_key = "ST1994" 
 
 class User:
     directory = {}
@@ -20,7 +20,8 @@ def home():
         user = User.directory[u]
         return render_template("saludo.html", nombre = user.name)
     else:
-        return redirect("/login")
+        return redirect("/login")         
+    
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -40,8 +41,23 @@ def login():
 
 
 @app.route("/logout", methods=["POST"])
+def cerrar_sesion(self):
+        # Eliminar información de sesión
+        self.username = None
+        self.token = None  
+        if "username" in session:
+            u = session ["username"]
+            return render_template("login.html", nombre = user.name)
+        else:
+            return redirect("/login")
+ 
 def logout():
-    pass
+    self.username = None#Destruir información de sesión
+    self.token = None #Redirigir a /login
+
+
+   
+   
 
 if __name__ =="__main__": #Responsable de levantar el servidor local que pone en funcionamiento la aplicación
     app.run(debug=True)

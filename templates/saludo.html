@@ -1,3 +1,5 @@
+<!-- En saludo.html incorporar un formulario que unicamente contiene un boton submit que dice
+"Cerrar Sesión". El action de ese formulario será "/logout". El method de ese formulario será "POST"!-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,7 +8,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hola, {{username}}</h1>
-    
+    <form action="/templates/login.html" method="POST">
+        <input type="submit" value="Cerrar Sesión">
+    </form>
 </body>
 </html>
